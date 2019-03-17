@@ -1,4 +1,29 @@
-# LAMP stack built with Docker Compose
+#Preinstall 
+
+On Debian run ```shell
+  apt update
+  apt upgrade
+  apt-get install     apt-transport-https     ca-certificates     curl     gnupg2     software-properties-common
+
+  curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+  apt-key fingerprint 0EBFCD88
+  lsb_release -cs
+  add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+   apt-get update
+   apt-get install docker-ce docker-ce-cli containerd.io
+   docker run hello-world
+
+   docker-compose:
+   
+   sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+```
+
+# LAMP stack built with Docker Compose and jtable
 
 This is a basic LAMP stack environment built using Docker Compose. It consists following:
 
@@ -19,7 +44,7 @@ git checkout 7.2.x
 docker-compose up -d
 ```
 
-Your LAMP stack is now ready!! You can access it via `http://localhost`.
+Your LAMP stack is now ready!! You can access it via `http://localhost:805`.
 
 ## Configuration
 
@@ -55,7 +80,7 @@ This will be used to store Apache logs. The default value for this is `./logs/my
 
 ## Web Server
 
-Apache is configured to run on port 80. So, you can access it via `http://localhost`.
+Apache is configured to run on port 805. So, you can access it via `http://localhost:805`.
 
 #### Apache Modules
 
@@ -100,12 +125,18 @@ By default following extensions are installed.
 
 ## phpMyAdmin
 
-phpMyAdmin is configured to run on port 8080. Use following default credentials.
+phpMyAdmin is configured to run on port 8085. Use following default credentials.
 
-http://localhost:8080/  
+http://localhost:8085/  
 username: root  
 password: tiger
 
 ## Redis
 
 It comes with Redis. It runs on default port `6379`.
+
+## jtable
+
+jtable can be accessed via http://localhost:805/jtable/jTableSimple.php
+
+its code could be changed at ~/www/jtable
