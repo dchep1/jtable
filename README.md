@@ -1,6 +1,7 @@
 #Preinstall 
 
-On Debian run ```shell
+On Debian run 
+```shell
   apt update
   apt upgrade
   apt-get install     apt-transport-https     ca-certificates     curl     gnupg2     software-properties-common
